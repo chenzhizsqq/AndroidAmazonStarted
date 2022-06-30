@@ -1,9 +1,6 @@
 package com.example.androidamazonstarted
 
 
-
-
-
 import android.graphics.Bitmap
 
 
@@ -16,22 +13,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
 
-
-
-
 // a singleton to hold user data (this is a ViewModel pattern, without inheriting from ViewModel)
 
 
 object UserData {
 
 
-
-
-
     private const val TAG = "UserData"
-
-
-
 
 
     //
@@ -43,9 +31,6 @@ object UserData {
     //
 
 
-
-
-
     // signed in status
 
 
@@ -55,10 +40,7 @@ object UserData {
     var isSignedIn: LiveData<Boolean> = _isSignedIn
 
 
-
-
-
-    fun setSignedIn(newValue : Boolean) {
+    fun setSignedIn(newValue: Boolean) {
 
 
         // use postvalue() to make the assignation on the main (UI) thread
@@ -70,16 +52,10 @@ object UserData {
     }
 
 
-
-
-
     // the notes
 
 
     private val _notes = MutableLiveData<MutableList<Note>>(mutableListOf())
-
-
-
 
 
     // please check https://stackoverflow.com/questions/47941537/notify-observer-when-item-is-added-to-list-of-livedata
@@ -103,13 +79,10 @@ object UserData {
     }
 
 
+    fun notes(): LiveData<MutableList<Note>> = _notes
 
 
-
-    fun notes() : LiveData<MutableList<Note>>  = _notes
-
-
-    fun addNote(n : Note) {
+    fun addNote(n: Note) {
 
 
         val notes = _notes.value
@@ -136,7 +109,7 @@ object UserData {
     }
 
 
-    fun deleteNote(at: Int) : Note?  {
+    fun deleteNote(at: Int): Note? {
 
 
         val note = _notes.value?.removeAt(at)
@@ -163,7 +136,12 @@ object UserData {
     }
 
 
-    data class Note(val id: String, val name: String, val description: String, var imageName: String? = null) {
+    data class Note(
+        val id: String,
+        val name: String,
+        val description: String,
+        var imageName: String? = null
+    ) {
 
 
         override fun toString(): String = name
@@ -172,7 +150,7 @@ object UserData {
         // bitmap image
 
 
-        var image : Bitmap? = null
+        var image: Bitmap? = null
 
     }
 

@@ -1,13 +1,7 @@
 package com.example.androidamazonstarted
 
 
-
-
-
 import android.app.Application
-
-
-
 
 
 class AndroidGettingStartedApplication : Application() {

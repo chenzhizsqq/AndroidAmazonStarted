@@ -1,9 +1,6 @@
 package com.example.androidamazonstarted
 
 
-
-
-
 import android.view.LayoutInflater
 
 
@@ -22,22 +19,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 
-
-
-
 // this is a single cell (row) in the list of Notes
 
 
 class NoteRecyclerViewAdapter(
 
 
-    private val values: MutableList<UserData.Note>?) :
+    private val values: MutableList<UserData.Note>?
+) :
 
 
     RecyclerView.Adapter<NoteRecyclerViewAdapter.ViewHolder>() {
-
-
-
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -55,13 +47,7 @@ class NoteRecyclerViewAdapter(
     }
 
 
-
-
-
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
-
-
 
 
         val item = values?.get(position)
@@ -88,13 +74,7 @@ class NoteRecyclerViewAdapter(
     }
 
 
-
-
-
     override fun getItemCount() = values?.size ?: 0
-
-
-
 
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
